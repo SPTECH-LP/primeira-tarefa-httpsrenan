@@ -5,7 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REVISÃO MATRIZ</title>
 </head>
+<style>
+
+    .container{
+        background-color: rgb(48, 48, 119);
+        text-align: center;
+        width: 300px;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        justify-items: center;
+    }
+
+    .item{
+        background-color: rgb(153, 28, 28);
+        width: 50px;
+        margin: 5px;
+    }
+
+</style>
 <body>
+    <div class="container" id="div_matriz">
+    </div>
+
+    <button onclick="montrarMatriz()">Montar Matriz</button> <br>
+
+    <input type="text" id="ipt_linha" placeholder="linha">
+    <input type="text" id="ipt_coluna" placeholder="coluna">
+    <button onclick="consultar()">Consultar</button>
+    <br><br>
+    <button onclick="somarLinha()">Somar linha</button>
+    <button onclick="somarColuna()">Somar coluna</button> 
+    <br>
+    <div id="div_result"></div>
     
 </body>
+<script>
+
+let minhaMatriz = []
+
+    function montrarMatriz(){
+        let qtdLinhas = 3
+        let qtdColunas = 3
+
+        let valorInicial = 5
+
+        for (let linha = 0; linha < qtdLinhas; linha++) {
+            minhaMatriz[linha] = []
+            for (let coluna = 0; coluna < qtdColunas; coluna++) {
+                minhaMatriz[linha][coluna] = valorInicial
+                valorInicial += 5
+
+                div_matriz.innerHTML += `<div class="item">${minhaMatriz[linha][coluna]}</div> `
+            }
+            
+        }
+
+        console.log(minhaMatriz);
+        
+    }
+
+    function consultar(){
+        let linha = ipt_linha.value
+        let coluna = ipt_coluna.value
+
+        let valor = minhaMatriz[linha][coluna]
+
+        div_result.innerHTML = `O valor da linha ${linha} e da coluna ${coluna} é: ${valor}`
+
+    }
+
+    function somarLinha(){
+
+    }
+
+    function somarColuna(){
+
+    }
+</script>
 </html>
